@@ -16,6 +16,11 @@ class BidsController < ApplicationController
     @bid = @product.bids.build(bid_params)
 
     if @bid.save
+      ActionCable.server.broadcast "bids",
+        product_id: @product.id,
+        product_name: @product.name,
+        value: @bid.value
+
       redirect_to product_bids_path(@product), notice: 'Bid was successfully created.'
     else
       render :new
