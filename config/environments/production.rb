@@ -83,4 +83,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # ActionCable configs
+  config.web_socket_server_url = ENV["WEB_SOCKET_SERVER_URL"]
+  config.action_cable.allowed_request_origins = ENV["ALLOWED_ORIGINS_URLS"].split(" ")
 end
