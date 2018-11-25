@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
-<h1>Bids for <%= @product.name %></h1>
+<h1>Pujas por <%= @product.name %></h1>
 
 <table class="bids-table-<%= @product.id %> table table-bordered">
   <thead>
     <tr>
-      <th>Value</th>
+      <th>Precio</th>
     </tr>
   </thead>
 
@@ -19,5 +19,5 @@
 
 <br>
 
-<%= link_to 'New Bid', new_product_bid_path(@product), class: "btn btn-success" %>
-<%= link_to 'Products Page', products_path, class: "btn btn-default" %>
+<%= link_to 'Nueva puja', new_product_bid_path(@product), class: "btn btn-success" %>
+<%= link_to 'Inventario', products_path, class: "btn btn-default" %>

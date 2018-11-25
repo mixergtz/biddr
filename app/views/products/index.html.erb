@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Products</h1>
+<h1>Inventario disponible</h1>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Nombre</th>
     </tr>
   </thead>
 
@@ -13,10 +13,10 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
-        <td><%= link_to 'Show', product, class: "btn btn-primary" %></td>
-        <td><%= link_to 'See bids', product_bids_path(product), class: "btn btn-success" %></td>
-        <td><%= link_to 'Edit', edit_product_path(product), class: "btn btn-warning" %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <td><%= link_to 'Ver item', product, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Ver pujas', product_bids_path(product), class: "btn btn-success" %></td>
+        <!-- <td><#%= link_to 'Editar', edit_product_path(product), class: "btn btn-warning" %></td> -->
+        <!-- <td><#%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path, class: "btn btn-primary" %>
+<%= link_to 'Nuevo Item', new_product_path, class: "btn btn-primary" %>
