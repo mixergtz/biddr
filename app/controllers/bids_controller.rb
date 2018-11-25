@@ -9,6 +9,7 @@ class BidsController < ApplicationController
   # GET /bids/new
   def new
     @bid = @product.bids.build
+    @bid.bidder_name = session[:bidder_name]
   end
 
   # POST /bids
@@ -16,6 +17,7 @@ class BidsController < ApplicationController
     @bid = @product.bids.build(bid_params)
 
     if @bid.save
+      session[:bidder_name] = @bid.bidder_name
       ActionCable.server.broadcast "bids",
         product_id: @product.id,
         product_name: @product.name,
@@ -35,6 +37,6 @@ class BidsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bid_params
-      params.require(:bid).permit(:value)
+      params.require(:bid).permit(:value, :bidder_name)
     end
 end

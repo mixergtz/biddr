@@ -5,6 +5,7 @@
   <thead>
     <tr>
       <th>Precio</th>
+      <th>Quién</th>
     </tr>
   </thead>
 
@@ -12,6 +13,7 @@
     <% @bids.each do |bid| %>
       <tr>
         <td><%= bid.value %></td>
+        <td><%= bid.bidder_name %></td>
       </tr>
     <% end %>
   </tbody>

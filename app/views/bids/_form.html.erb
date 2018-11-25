@@ -17,6 +17,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :bidder_name, "Quién" %>
+    <%= f.text_field :bidder_name %>
+  </div>
+
+  <div class="form-group">
     <%= f.submit "Nueva Puja", class: "btn btn-primary" %>
   </div>
 <% end %>
