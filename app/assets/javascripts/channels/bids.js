@@ -9,6 +9,7 @@ App.cable.subscriptions.create("BidsChannel", {
     // Product specific tables
     $(".bids-table-" + data.product_id + " tbody")
     .prepend("<tr class='warning'><td>" + data.value + " \
-             <span class='label label-info pull-right'>New</span></td></tr>")
+             <span class='label label-info pull-right'>New</span></td> \
+             <td>" + data.bidder_name + "</td></tr>")
   }
 });

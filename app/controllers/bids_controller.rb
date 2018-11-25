@@ -30,8 +30,8 @@ class BidsController < ApplicationController
       ActionCable.server.broadcast "bids",
         product_id: @product.id,
         product_name: @product.name,
-        value: @bid.value
-
+        value: @bid.value,
+        bidder_name: @bid.bidder_name
       redirect_to product_bids_path(@product), notice: 'Bid was successfully created.'
     else
       render :new
