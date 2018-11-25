@@ -13,7 +13,15 @@
     <% @bids.each do |bid| %>
       <tr>
         <td><%= bid.value %></td>
-        <td><%= bid.bidder_name %></td>
+        <td>
+          <%= bid.bidder_name %>
+          <% if bid.winner == true %>
+            <span class="badge">Ganador
+          <% end %>
+        </td>
+        <% if session[:admin] == true %>
+          <td><%= link_to 'Ganadora', [@product, bid], method: :patch, class: "btn btn-success" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

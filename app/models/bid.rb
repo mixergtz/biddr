@@ -6,7 +6,7 @@ class Bid < ApplicationRecord
 
   scope :highest_first, -> { order(value: :desc) }
   scope :highest_by_product, -> (product_id) { where(product_id: product_id).highest_first }
-
+  scope :winners, -> { where(winner: true) }
 
   def is_highest_bid
     highest_bid = self.class.highest_by_product(product_id).first

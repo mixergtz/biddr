@@ -12,6 +12,15 @@ class BidsController < ApplicationController
     @bid.bidder_name = session[:bidder_name]
   end
 
+  def update
+    return if session[:admin] != true
+    return if params[:id].blank?
+    bid = Bid.find(params[:id])
+    bid.winner = true
+    bid.save(validate: false)
+    redirect_to product_bids_path(@product)
+  end
+
   # POST /bids
   def create
     @bid = @product.bids.build(bid_params)
