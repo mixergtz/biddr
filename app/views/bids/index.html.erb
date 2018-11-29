@@ -29,5 +29,7 @@
 
 <br>
 
-<%= link_to 'Nueva puja', new_product_bid_path(@product), class: "btn btn-success" %>
+<% unless @product.bids.winners.count > 0 %>
+  <%= link_to 'Nueva puja', new_product_bid_path(@product), class: "btn btn-success" %>
+<% end %>
 <%= link_to 'Inventario', products_path, class: "btn btn-default" %>

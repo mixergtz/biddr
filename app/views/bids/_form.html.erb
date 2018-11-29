@@ -1,7 +1,7 @@
 <%= form_for([product, bid]) do |f| %>
   <% if bid.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(bid.errors.count, "error") %> prohibited this bid from being saved:</h2>
+      <h2><%= pluralize(bid.errors.count, "error") %> no hizo posible hacer esta puja:</h2>
 
       <ul>
       <% bid.errors.full_messages.each do |message| %>
