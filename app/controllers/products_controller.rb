@@ -41,6 +41,8 @@ class ProductsController < ApplicationController
 
   # DELETE /products/1
   def destroy
+    return if session[:admin] != true
+    
     @product.destroy
     redirect_to products_url, notice: 'Product was successfully destroyed.'
   end

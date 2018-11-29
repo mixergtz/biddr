@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Inventario disponible</h1>
+<h1>Inventario disponible Subasta La Haus 2018</h1>
 
 <table class="table">
   <thead>
@@ -13,10 +13,10 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
-        <td><%= link_to 'Ver item', product, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Ver item', product, class: "btn btn-primary" if session[:admin] == true %></td>
         <td><%= link_to 'Ver pujas', product_bids_path(product), class: "btn btn-success" %></td>
-        <!-- <td><#%= link_to 'Editar', edit_product_path(product), class: "btn btn-warning" %></td> -->
-        <!-- <td><#%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td> -->
+        <td><%= link_to 'Editar', edit_product_path(product), class: "btn btn-warning" if session[:admin] == true %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" if session[:admin] == true %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'Nuevo Item', new_product_path, class: "btn btn-primary" %>
+<%= link_to 'Nuevo Item', new_product_path, class: "btn btn-primary" if session[:admin] == true %>

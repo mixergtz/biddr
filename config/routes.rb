@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "pages#index"
+  root "products#index"
 
   resources :admin, only: :index
 
